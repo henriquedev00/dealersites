@@ -11,12 +11,17 @@
         
                         <h2 class="card-title text-center mb-5">DealerSites</h2>
         
-                        <form action="#" method="POST">
+                        <form action="{{ route('register.store') }}" method="POST">
                             @csrf
         
                             <div class="card-text d-flex flex-column justify-content-center align-items-center">
                                 <div class="form-floating w-75 mb-4">
-                                    <input type="email" name="email" class="form-control" id="email" value="{{ old('name') }}">
+                                    <input type="text" name="name" class="form-control" id="name" value="{{ old('name') }}">
+                                    <label for="name" class="form-label">Name:</label>
+                                </div>
+
+                                <div class="form-floating w-75 mb-4">
+                                    <input type="email" name="email" class="form-control" id="email" value="{{ old('email') }}">
                                     <label for="email" class="form-label">Email address:</label>
                                 </div>
         
@@ -37,7 +42,7 @@
                         </form>
 
                         <div class="card-text d-flex justify-content-center">
-                            <a href="#" class="link-secondary">Já tem uma conta? Faça login aqui</a>
+                            <a href="{{ route('login.index') }}" class="link-secondary">Já tem uma conta? Faça login aqui</a>
                         </div>
                     </div>
                 </div>
