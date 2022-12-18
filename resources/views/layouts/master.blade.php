@@ -11,11 +11,20 @@
     <title>@yield('title') | DealerSites</title>
 </head>
 <body>
+    @auth
+        @include('layouts.header')
+        @include('auth.partials._confirmation-logout')
+    @endauth
+
     @yield('content')
 
-    <script src="{{ asset('js/app.js') }}"></script>
     <script src="{{ asset('js/jquery.js') }}"></script>
+    <script src="{{ asset('js/app.js') }}"></script>
     <script src="{{ asset('js/bootstrap.bundle.js') }}"></script>
     @include('sweetalert::alert')
+
+    @hasSection('js')
+        @yield('js')
+    @endif
 </body>
 </html>

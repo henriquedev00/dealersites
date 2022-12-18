@@ -16,18 +16,36 @@
         
                             <div class="card-text d-flex flex-column justify-content-center align-items-center">
                                 <div class="form-floating w-75 mb-4">
-                                    <input type="text" name="name" class="form-control" id="name" value="{{ old('name') }}">
+                                    <input type="text" name="name" class="form-control {{ $errors->has('name') ? 'is-invalid' : '' }}" id="name" value="{{ old('name') }}">
                                     <label for="name" class="form-label">Name:</label>
+
+                                    @if($errors->has('name'))
+                                        <div id="nameFeedback" class="invalid-feedback">
+                                            {{ $errors->first('name') }}
+                                        </div>
+                                    @endif
                                 </div>
 
                                 <div class="form-floating w-75 mb-4">
-                                    <input type="email" name="email" class="form-control" id="email" value="{{ old('email') }}">
+                                    <input type="email" name="email" class="form-control {{ $errors->has('email') ? 'is-invalid' : '' }}" id="email" value="{{ old('email') }}">
                                     <label for="email" class="form-label">Email address:</label>
+
+                                    @if($errors->has('email'))
+                                        <div id="emailFeedback" class="invalid-feedback">
+                                            {{ $errors->first('email') }}
+                                        </div>
+                                    @endif
                                 </div>
         
                                 <div class="form-floating w-75 mb-4">
-                                    <input type="password" name="password" class="form-control" id="password">
+                                    <input type="password" name="password" class="form-control {{ $errors->has('password') ? 'is-invalid' : '' }}" id="password">
                                     <label for="password" class="form-label">Password:</label>
+
+                                    @if($errors->has('password'))
+                                        <div id="passwordFeedback" class="invalid-feedback">
+                                            {{ $errors->first('password') }}
+                                        </div>
+                                    @endif
                                 </div>
 
                                 <div class="form-floating w-75 mb-4">
@@ -35,7 +53,7 @@
                                     <label for="password_confirmation" class="form-label">Password confirmation:</label>
                                 </div>
 
-                                <div class="form-floating w-75 mb-4">
+                                <div class="w-75 mb-4">
                                     <button class="btn btn-secondary w-100 py-2">Registre-se</button>
                                 </div>
                             </div>

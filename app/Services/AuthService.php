@@ -4,6 +4,7 @@ namespace App\Services;
 
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Validation\UnauthorizedException;
 
 class AuthService
 {
@@ -15,13 +16,15 @@ class AuthService
 
             return redirect()->intended('users');
         }
+
+        throw new UnauthorizedException();
     }
 
     public function store(array $data)
     {
         $user = User::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
+            'name' => ucwords(trim($data['name'])),
+            'email' => trim($data['email']),
             'password' => bcrypt($data['password'])
         ]);
 
