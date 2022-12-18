@@ -1,6 +1,6 @@
 # DealerSites
 
-##### O projeto requer um versão mínima de PHP 8.0.2
+##### O projeto requer no mínimo a versão 8.0.2 do PHP.
 
 - Rodar o comando:
     ```sh
